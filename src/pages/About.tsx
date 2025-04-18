@@ -40,7 +40,7 @@ const About = () => {
       
       <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
         <div className="space-y-6 animate-enter">
-          <p className="text-xl leading-relaxed text-muted">{personalData.about.bio}</p>
+          <p className="text-xl leading-relaxed text-muted">{personalData.introduction}</p>
           
           <div className="flex justify-center md:justify-start">
             <SocialLinks />
@@ -48,8 +48,7 @@ const About = () => {
         </div>
         
         <div className="rounded-full overflow-hidden aspect-square bg-accent shadow-lg animate-float">
-          {/* Add your profile image here */}
-          <img src="your-profile-image.jpg" alt={personalData.name} className="w-full h-full object-cover" />
+          <img src={personalData.profileImage} alt={personalData.name} className="w-full h-full object-cover" />
         </div>
       </div>
       
@@ -58,7 +57,7 @@ const About = () => {
         <div className="glass-effect p-8 rounded-xl animate-enter">
           <h2 className="text-2xl font-bold text-gradient mb-6">Interests</h2>
           <ul className="space-y-3">
-            {personalData.about.interests.map((interest, index) => (
+            {personalData.interests.map((interest, index) => (
               <li key={index} className="flex items-center">
                 <span className="w-2 h-2 rounded-full bg-primary mr-3"></span>
                 <span className="text-lg">{interest}</span>
@@ -70,7 +69,7 @@ const About = () => {
         <div className="glass-effect p-8 rounded-xl animate-enter">
           <h2 className="text-2xl font-bold text-gradient mb-6">Hobbies</h2>
           <ul className="space-y-3">
-            {personalData.about.hobbies.map((hobby, index) => (
+            {personalData.hobbies.map((hobby, index) => (
               <li key={index} className="flex items-center">
                 <span className="w-2 h-2 rounded-full bg-primary mr-3"></span>
                 <span className="text-lg">{hobby}</span>

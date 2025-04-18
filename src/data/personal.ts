@@ -45,8 +45,10 @@ export const personalData = {
   },
   
   socialLinks: {
+    github: "https://github.com/kuvam2005",
     instagram: "mavuk_str12",
-    github: "kuvam2005",
-    linkedin: "Kuvam kuvam"
+    linkedin: "https://www.linkedin.com/in/kuvam-kuvam-a2955a257",
+    email: "kuvamkeshav@gmail.com",
+    phone: "9958246539"
   }
 };

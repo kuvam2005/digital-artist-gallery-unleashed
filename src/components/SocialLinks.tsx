@@ -1,22 +1,33 @@
 
-import { Github, Instagram, Linkedin } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail, Phone } from "lucide-react";
+import { personalData } from "@/data/personal";
 
 export const SocialLinks = () => {
   const socials = [
     {
       icon: Instagram,
-      href: "https://instagram.com/mavuk_str12",
+      href: `https://instagram.com/${personalData.socialLinks.instagram}`,
       label: "Instagram",
     },
     {
       icon: Github,
-      href: "https://github.com/kuvam2005",
+      href: personalData.socialLinks.github,
       label: "GitHub",
     },
     {
       icon: Linkedin,
-      href: "https://linkedin.com/in/kuvam-kuvam",
+      href: personalData.socialLinks.linkedin,
       label: "LinkedIn",
+    },
+    {
+      icon: Mail,
+      href: `mailto:${personalData.socialLinks.email}`,
+      label: "Email",
+    },
+    {
+      icon: Phone,
+      href: `tel:${personalData.socialLinks.phone}`,
+      label: "Phone",
     },
   ];
 
