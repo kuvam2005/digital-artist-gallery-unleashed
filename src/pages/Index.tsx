@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SocialLinks } from "@/components/SocialLinks";
@@ -9,6 +8,7 @@ import { projectsData } from "@/data/projects";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ArrowDown, Send, User, Code } from "lucide-react";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import VoiceNavigation from "@/components/VoiceNavigation";
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -95,25 +95,24 @@ const Index = () => {
           </NavigationMenuList>
         </NavigationMenu>
       </header>
-
-      {/* Hero Section */}
+      
+      {/* Hero Section with Profile Image */}
       <section id="hero" className="text-center space-y-6 min-h-[70vh] flex flex-col items-center justify-center">
+        <div className="mb-8">
+          <img
+            src={personalData.profileImage}
+            alt={personalData.name}
+            className="w-48 h-48 rounded-full object-cover mx-auto shadow-xl animate-float"
+          />
+        </div>
         <div className="animate-float">
           <h1 className="text-6xl font-bold text-gradient">
-            Hi!
+            Hi! I'm {personalData.name}
           </h1>
         </div>
         <p className="text-2xl animate-pulse-subtle">
-          This is {personalData.name}'s Website.<br />
           {personalData.title}
         </p>
-        <button 
-          onClick={() => scrollToSection('welcome')} 
-          className="mt-8 bg-primary/20 hover:bg-primary/30 p-3 rounded-full animate-pulse-subtle transition-colors"
-          aria-label="Scroll down"
-        >
-          <ArrowDown className="text-primary" size={24} />
-        </button>
       </section>
 
       {/* Welcome Section */}
@@ -190,8 +189,11 @@ const Index = () => {
           </button>
         </form>
       </section>
-
-      {/* Virtual Assistant */}
+      
+      {/* Add Voice Navigation */}
+      <VoiceNavigation />
+      
+      {/* Add Virtual Assistant */}
       <VirtualAssistant />
     </div>
   );
