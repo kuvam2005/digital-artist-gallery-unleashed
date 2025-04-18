@@ -7,27 +7,62 @@
 
 @layer base {
   :root {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+    --background: 210 50% 98%;
+    --foreground: 222 47% 11%;
 
-    --primary: 210 40% 98%;
+    --primary: 250 95% 76%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
-    --accent: 216 34% 17%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 245 40% 93%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 215.4 16.3% 46.9%;
-    --border: 216 34% 17%;
-    --card: 224 71% 4%;
+    --muted: 215 16% 47%;
+    --border: 216 20% 87%;
+    --card: 210 50% 98%;
   }
 
   body {
     @apply bg-background text-foreground font-inter antialiased;
+    background-image: linear-gradient(to bottom right, rgba(211, 228, 253, 0.3), rgba(229, 222, 255, 0.3));
+  }
+
+  /* For scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full;
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-foreground;
   }
 }
 
 @layer utilities {
   .project-card {
-    @apply relative overflow-hidden rounded-xl p-6 bg-accent hover:bg-accent/80 transition-colors;
+    @apply relative overflow-hidden rounded-xl p-6 bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50;
+    background-image: linear-gradient(to bottom right, rgba(255,255,255,0.9), rgba(242, 252, 226, 0.3));
+  }
+  
+  .glass-effect {
+    @apply bg-white/60 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-pastel-purple bg-clip-text text-transparent;
+  }
+  
+  .animate-enter {
+    @apply animate-fade-in;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
   }
 }

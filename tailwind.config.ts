@@ -14,9 +14,40 @@ export default {
         muted: "hsl(var(--muted))",
         border: "hsl(var(--border))",
         card: "hsl(var(--card))",
+        pastel: {
+          green: "#F2FCE2",
+          yellow: "#FEF7CD",
+          blue: "#D3E4FD",
+          pink: "#FFDEE2",
+          purple: "#E5DEFF",
+        },
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
+      },
+      keyframes: {
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "pulse-subtle": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.8" },
+        },
+        "slide-in": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
+      animation: {
+        "float": "float 6s ease-in-out infinite",
+        "pulse-subtle": "pulse-subtle 3s ease-in-out infinite",
+        "slide-in": "slide-in 0.5s ease-out",
+        "fade-in": "fade-in 0.5s ease-in",
       },
     },
   },
