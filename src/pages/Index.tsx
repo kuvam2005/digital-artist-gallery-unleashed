@@ -1,29 +1,14 @@
 
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { SocialLinks } from "@/components/SocialLinks";
 import { ProjectCarousel } from "@/components/ProjectCarousel";
 import { VirtualAssistant } from "@/components/VirtualAssistant";
+import { personalData } from "@/data/personal";
+import { projectsData } from "@/data/projects";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { ArrowDown, Send } from "lucide-react";
-
-// Project data
-const projects = [
-  {
-    title: "Stick Hero",
-    description: "A challenging game where players must create bridges to help their character cross obstacles.",
-    imageUrl: "/lovable-uploads/1b16e0ca-fefb-41cf-b6fd-d9fd21f70390.png"
-  },
-  {
-    title: "Riyaaz",
-    description: "A music practice application designed to help musicians improve their skills.",
-    imageUrl: "/lovable-uploads/1b16e0ca-fefb-41cf-b6fd-d9fd21f70390.png"
-  },
-  {
-    title: "Antelope Lazer Cutting Model",
-    description: "A precision laser cutting project featuring intricate antelope designs.",
-    imageUrl: "/lovable-uploads/1b16e0ca-fefb-41cf-b6fd-d9fd21f70390.png"
-  }
-];
+import { ArrowDown, Send, User, Code } from "lucide-react";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -58,6 +43,11 @@ const Index = () => {
       const scrollSound = new Audio('/scroll-sound.mp3');
       scrollSound.volume = 0.2;
       scrollSound.play().catch(e => console.error("Error playing sound:", e));
+      
+      // Haptic feedback
+      if (navigator.vibrate) {
+        navigator.vibrate(40);
+      }
     }
   };
   
@@ -81,6 +71,31 @@ const Index = () => {
 
   return (
     <div className="min-h-screen max-w-6xl mx-auto px-6 py-12 space-y-24">
+      {/* Navigation Menu */}
+      <header className="sticky top-0 z-50 glass-effect py-4 px-6 rounded-full mx-auto max-w-xl">
+        <NavigationMenu className="mx-auto">
+          <NavigationMenuList className="flex gap-1">
+            <NavigationMenuItem>
+              <Link to="/" className={navigationMenuTriggerStyle()}>
+                Home
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link to="/about" className={navigationMenuTriggerStyle()}>
+                <User className="w-4 h-4 mr-1" />
+                About
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link to="/skills" className={navigationMenuTriggerStyle()}>
+                <Code className="w-4 h-4 mr-1" />
+                Skills
+              </Link>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+      </header>
+
       {/* Hero Section */}
       <section id="hero" className="text-center space-y-6 min-h-[70vh] flex flex-col items-center justify-center">
         <div className="animate-float">
@@ -89,8 +104,8 @@ const Index = () => {
           </h1>
         </div>
         <p className="text-2xl animate-pulse-subtle">
-          This is Kuvam's Website.<br />
-          This is NOT a resume.
+          This is {personalData.name}'s Website.<br />
+          {personalData.title}
         </p>
         <button 
           onClick={() => scrollToSection('welcome')} 
@@ -106,8 +121,14 @@ const Index = () => {
         <div className="space-y-6 animate-enter">
           <h2 className="text-4xl font-bold text-gradient">Welcome to my Portfolio</h2>
           <p className="text-muted text-lg">
-            Hello! I'm Kuvam, a passionate developer focusing on creating engaging and functional applications.
+            {personalData.introduction}
           </p>
+          <Link 
+            to="/about" 
+            className="inline-block px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors"
+          >
+            Learn More About Me
+          </Link>
         </div>
         <div className="rounded-full overflow-hidden aspect-square bg-accent shadow-lg animate-float">
           {/* Add your profile image here */}
@@ -118,7 +139,7 @@ const Index = () => {
       {/* Projects Section */}
       <section id="projects" className="space-y-12">
         <h2 className="text-3xl font-bold text-gradient text-center">Projects</h2>
-        <ProjectCarousel projects={projects} />
+        <ProjectCarousel projects={projectsData} />
       </section>
 
       {/* Find Me Section */}

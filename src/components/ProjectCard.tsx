@@ -1,15 +1,18 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface ProjectCardProps {
+  id: string;
   title: string;
   description: string;
   imageUrl: string;
 }
 
-export const ProjectCard = ({ title, description, imageUrl }: ProjectCardProps) => {
+export const ProjectCard = ({ id, title, description, imageUrl }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+  const navigate = useNavigate();
   
   // Play a subtle click sound when project is clicked
   const handleClick = () => {
@@ -19,8 +22,15 @@ export const ProjectCard = ({ title, description, imageUrl }: ProjectCardProps) 
     clickSound.volume = 0.2;
     clickSound.play().catch(e => console.error("Error playing sound:", e));
     
-    // Reset after animation completes
-    setTimeout(() => setIsClicked(false), 300);
+    // Haptic feedback for mobile
+    if (navigator.vibrate) {
+      navigator.vibrate(70);
+    }
+    
+    // Navigate after a brief delay for the click animation
+    setTimeout(() => {
+      navigate(`/project/${id}`);
+    }, 200);
   };
   
   return (

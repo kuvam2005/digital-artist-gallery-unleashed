@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/carousel';
 
 interface Project {
+  id: string;
   title: string;
   description: string;
   imageUrl: string;
@@ -38,15 +39,19 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) =>
       
       <Carousel
         className="w-full"
-        onScrollStart={playSwipeSound}
+        opts={{
+          align: "start",
+          loop: true
+        }}
       >
-        <CarouselContent className="-ml-4">
+        <CarouselContent className="-ml-4" onScroll={playSwipeSound}>
           {projects.map((project, index) => (
             <CarouselItem 
               key={index} 
               className={`pl-4 ${isMobile ? 'basis-full' : 'basis-1/3'}`}
             >
               <ProjectCard
+                id={project.id}
                 title={project.title}
                 description={project.description}
                 imageUrl={project.imageUrl}
