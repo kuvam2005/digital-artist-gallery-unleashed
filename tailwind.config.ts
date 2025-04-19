@@ -7,13 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: "hsl(var(--primary))",
-        accent: "hsl(var(--accent))",
-        muted: "hsl(var(--muted))",
-        border: "hsl(var(--border))",
-        card: "hsl(var(--card))",
+        background: "#1A1F2C",
+        foreground: "#FFFFFF",
+        primary: "#6C63FF",
+        accent: "#2A2F3F",
+        muted: "#9CA3AF",
+        border: "#2E3444",
+        card: "#222831",
         pastel: {
           green: "#F2FCE2",
           yellow: "#FEF7CD",

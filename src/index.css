@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -6,57 +5,22 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 210 50% 98%;
-    --foreground: 222 47% 11%;
-
-    --primary: 250 95% 76%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --accent: 245 40% 93%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 215 16% 47%;
-    --border: 216 20% 87%;
-    --card: 210 50% 98%;
-  }
-
   body {
     @apply bg-background text-foreground font-inter antialiased;
-    background-image: linear-gradient(to bottom right, rgba(211, 228, 253, 0.3), rgba(229, 222, 255, 0.3));
-    scroll-behavior: smooth;
-  }
-
-  /* For scrollbar styling */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    @apply bg-transparent;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    @apply bg-primary/30 rounded-full;
-  }
-
-  ::selection {
-    @apply bg-primary/30 text-foreground;
   }
 }
 
 @layer utilities {
-  .project-card {
-    @apply relative overflow-hidden rounded-xl p-6 bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50;
-    background-image: linear-gradient(to bottom right, rgba(255,255,255,0.9), rgba(229, 222, 255, 0.3));
-  }
-  
   .glass-effect {
-    @apply bg-white/60 backdrop-blur-md border border-white/20 shadow-lg;
+    @apply bg-card/50 backdrop-blur-lg border border-border/50 shadow-lg;
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-pastel-purple bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent;
+  }
+  
+  .project-card {
+    @apply glass-effect p-6 rounded-xl hover:shadow-xl transition-all duration-300;
   }
   
   .animate-enter {
