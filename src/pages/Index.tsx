@@ -9,6 +9,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { ArrowDown, Send, User, Code } from "lucide-react";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import VoiceNavigation from "@/components/VoiceNavigation";
+
 const Index = () => {
   const isMobile = useIsMobile();
 
@@ -67,6 +68,7 @@ const Index = () => {
     // Show success message (in a real app, you'd handle form submission here)
     alert("Message sent successfully!");
   };
+
   return <div className="min-h-screen max-w-6xl mx-auto px-6 py-12 space-y-24">
       {/* Navigation Menu */}
       <header className="sticky top-0 z-50 glass-effect py-4 px-6 rounded-full mx-auto max-w-xl">
@@ -78,21 +80,19 @@ const Index = () => {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/about" className={navigationMenuTriggerStyle()}>
-                <User className="w-4 h-4 mr-1" />
-                About
+              <Link to="/projects" className={navigationMenuTriggerStyle()}>
+                Projects
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/skills" className={navigationMenuTriggerStyle()}>
-                <Code className="w-4 h-4 mr-1" />
-                Skills
+              <Link to="/about" className={navigationMenuTriggerStyle()}>
+                About
               </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
       </header>
-      
+
       {/* Hero Section with Profile Image */}
       <section id="hero" className="text-center space-y-6 min-h-[70vh] flex flex-col items-center justify-center">
         <div className="mb-8">
@@ -169,4 +169,5 @@ const Index = () => {
       <VirtualAssistant />
     </div>;
 };
+
 export default Index;
