@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
@@ -60,7 +59,7 @@ const About = () => {
             {personalData.interests.map((interest, index) => (
               <li key={index} className="flex items-center">
                 <span className="w-2 h-2 rounded-full bg-primary mr-3"></span>
-                <span className="text-lg">{interest}</span>
+                <span className="text-lg">{interest.title}</span>
               </li>
             ))}
           </ul>

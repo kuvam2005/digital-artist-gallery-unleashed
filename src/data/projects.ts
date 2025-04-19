@@ -28,8 +28,8 @@ export const projectsData = [
     title: "Riyaaz",
     tagline: "Music practice assistant for dedicated musicians",
     description: "Riyaaz is a comprehensive music practice application designed to help musicians structure their practice sessions effectively. The app provides tools for tracking progress, setting goals, and maintaining consistency in daily practice routines.",
-    imageUrl: "/lovable-uploads/4324ed53-3387-46ef-af18-c6ed629a262c.png",
-    detailImageUrl: "/lovable-uploads/775adb07-9abe-4238-8bc8-3ffd3bf0eae6.png",
+    imageUrl: "/lovable-uploads/ca451816-d844-41ce-9ab4-a2779424cc16.png",
+    detailImageUrl: "/lovable-uploads/36e3f3d2-0763-41bd-8fb1-d2c3144430b6.png",
     technologies: ["React Native", "Firebase", "Audio Processing", "UI/UX Design"],
     features: [
       {
