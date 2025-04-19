@@ -8,6 +8,9 @@ export const projectsData = [
     imageUrl: "/lovable-uploads/f9b64ffa-1ce5-4755-9532-2834da0842b7.png",
     detailImageUrl: "/lovable-uploads/f9b64ffa-1ce5-4755-9532-2834da0842b7.png",
     technologies: ["Unity", "C#", "Mobile Development", "Game Design"],
+    links: {
+      github: "https://github.com/kuvam2005/StickHero"
+    },
     features: [
       {
         title: "Precision Controls",
@@ -31,6 +34,9 @@ export const projectsData = [
     imageUrl: "/lovable-uploads/ca451816-d844-41ce-9ab4-a2779424cc16.png",
     detailImageUrl: "/lovable-uploads/36e3f3d2-0763-41bd-8fb1-d2c3144430b6.png",
     technologies: ["React Native", "Firebase", "Audio Processing", "UI/UX Design"],
+    links: {
+      github: "https://github.com/Areeb22297/Riyaaz-FAE-group-project"
+    },
     features: [
       {
         title: "Practice Routines",
@@ -54,6 +60,9 @@ export const projectsData = [
     imageUrl: "/lovable-uploads/c8ee430d-b80e-4449-a695-0b558651f5ff.png",
     detailImageUrl: "/lovable-uploads/25f4883f-5376-49e8-b6f2-45cdd98b61e7.png",
     technologies: ["Adobe Illustrator", "CAD", "Laser Cutting", "Material Design"],
+    links: {
+      github: ""
+    },
     features: [
       {
         title: "Precision Detailing",

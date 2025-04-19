@@ -6,7 +6,7 @@ import { personalData } from "@/data/personal";
 
 const About = () => {
   return (
-    <div className="min-h-screen max-w-6xl mx-auto px-6 py-12">
+    <div className="min-h-screen max-w-6xl mx-auto px-6 py-12 bg-background">
       <Link to="/" className="inline-flex items-center mb-8 text-primary hover:text-primary/80 transition-colors">
         <ArrowLeft className="mr-2" size={20} />
         <span>Back to Home</span>
