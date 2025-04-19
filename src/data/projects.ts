@@ -31,8 +31,8 @@ export const projectsData = [
     title: "Riyaaz",
     tagline: "Music practice assistant for dedicated musicians",
     description: "Riyaaz is a comprehensive music practice application designed to help musicians structure their practice sessions effectively. The app provides tools for tracking progress, setting goals, and maintaining consistency in daily practice routines.",
-    imageUrl: "/lovable-uploads/ca451816-d844-41ce-9ab4-a2779424cc16.png",
-    detailImageUrl: "/lovable-uploads/36e3f3d2-0763-41bd-8fb1-d2c3144430b6.png",
+    imageUrl: "/lovable-uploads/0515ab83-0fd2-469f-95e3-10ab392b1ea5.png",
+    detailImageUrl: "/lovable-uploads/0515ab83-0fd2-469f-95e3-10ab392b1ea5.png",
     technologies: ["React Native", "Firebase", "Audio Processing", "UI/UX Design"],
     links: {
       github: "https://github.com/Areeb22297/Riyaaz-FAE-group-project"
@@ -57,8 +57,8 @@ export const projectsData = [
     title: "Antelope Laser Cutting Model",
     tagline: "Precision design work featuring intricate antelope patterns",
     description: "The Antelope Laser Cutting Model project showcases my work in precision design for laser cutting technology. I created intricate patterns based on antelope silhouettes and natural forms, developing designs that balance aesthetic beauty with technical requirements.",
-    imageUrl: "/lovable-uploads/c8ee430d-b80e-4449-a695-0b558651f5ff.png",
-    detailImageUrl: "/lovable-uploads/25f4883f-5376-49e8-b6f2-45cdd98b61e7.png",
+    imageUrl: "/lovable-uploads/abc9be5f-21a2-433f-af6c-f9561fa3a99e.png",
+    detailImageUrl: "/lovable-uploads/abc9be5f-21a2-433f-af6c-f9561fa3a99e.png",
     technologies: ["Adobe Illustrator", "CAD", "Laser Cutting", "Material Design"],
     links: {
       github: ""

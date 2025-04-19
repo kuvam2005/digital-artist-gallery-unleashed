@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect, useRef } from 'react';
-import { useIsMobile } from '@/hooks/use-mobile';
 import { useNavigate } from 'react-router-dom';
-import { Bot, X, Volume2, VolumeX, Info, Briefcase, Mail, Navigation, Clock } from 'lucide-react';
+import { Bot, X, Volume2, VolumeX, Search, Info, Briefcase, Mail, Navigation, Clock } from 'lucide-react';
+import { projectsData } from '@/data/projects';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 // Array of greetings and tips
 const getMessages = (timeOfDay: string) => [
@@ -42,6 +42,8 @@ export const VirtualAssistant: React.FC = () => {
   const notificationRef = useRef<HTMLAudioElement | null>(null);
   const navigate = useNavigate();
   const isMobile = useIsMobile();
+  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
   
   // Determine time of day
   useEffect(() => {
@@ -113,7 +115,13 @@ export const VirtualAssistant: React.FC = () => {
   };
   
   // Handle navigation suggestion click
-  const handleSuggestionClick = (action: string, section?: string) => {
+  const handleSuggestionClick = (action: string, section?: string, projectId?: string) => {
+    if (projectId) {
+      navigate(`/project/${projectId}`);
+      setIsOpen(false);
+      return;
+    }
+    
     // Haptic feedback
     if (navigator.vibrate) {
       navigator.vibrate(50);
@@ -139,6 +147,36 @@ export const VirtualAssistant: React.FC = () => {
     
     // Close the assistant after navigation
     setIsOpen(false);
+  };
+
+  // Add technology search functionality
+  const searchByTechnology = (query: string) => {
+    const results = projectsData.filter(project =>
+      project.technologies.some(tech => 
+        tech.toLowerCase().includes(query.toLowerCase())
+      )
+    );
+    setSearchResults(results);
+    setCurrentMessage(`Here are projects using ${query}: ${results.map(p => p.title).join(', ')}`);
+    setShowSuggestions(true);
+  };
+
+  // Enhance message processing
+  const processMessage = (message: string) => {
+    const lowercaseMsg = message.toLowerCase();
+    
+    // Check for technology search
+    if (lowercaseMsg.includes('search') || lowercaseMsg.includes('find')) {
+      const techs = ['react', 'unity', 'firebase', 'cad', 'mobile'];
+      for (const tech of techs) {
+        if (lowercaseMsg.includes(tech)) {
+          searchByTechnology(tech);
+          return;
+        }
+      }
+    }
+    
+    
   };
   
   // Assistant position based on screen size
@@ -185,8 +223,26 @@ export const VirtualAssistant: React.FC = () => {
             <p className="text-foreground">{currentMessage}{isTyping && "▋"}</p>
           </div>
           
+          {showSuggestions && searchResults.length > 0 && (
+            <div className="mt-3 space-y-2">
+              <p className="text-xs text-muted">Found projects:</p>
+              <div className="grid grid-cols-1 gap-2">
+                {searchResults.map((project, index) => (
+                  <button 
+                    key={index}
+                    onClick={() => handleSuggestionClick('', '', project.id)}
+                    className="px-3 py-2 text-xs bg-primary/10 hover:bg-primary/20 text-primary rounded-lg flex items-center gap-1 transition-colors"
+                  >
+                    <Search size={12} />
+                    <span>{project.title}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+          
           {/* Navigation Suggestions */}
-          {showSuggestions && (
+          {showSuggestions && searchResults.length === 0 && (
             <div className="mt-3 space-y-2">
               <p className="text-xs text-muted">I can help you navigate:</p>
               <div className="grid grid-cols-2 gap-2">

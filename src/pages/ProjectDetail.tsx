@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
@@ -11,22 +10,18 @@ const ProjectDetail = () => {
   const isMobile = useIsMobile();
   
   useEffect(() => {
-    // Find the project with the matching id
     const foundProject = projectsData.find(p => p.id === projectId);
     if (foundProject) {
       setProject(foundProject);
       
-      // Play entrance sound
       const entranceSound = new Audio('/swipe-sound.mp3');
       entranceSound.volume = 0.2;
       entranceSound.play().catch(e => console.error("Error playing sound:", e));
       
-      // Scroll to top
       window.scrollTo(0, 0);
     }
   }, [projectId]);
   
-  // Haptic feedback for mobile
   const triggerHapticFeedback = () => {
     if (navigator.vibrate) {
       navigator.vibrate(50);
@@ -43,7 +38,6 @@ const ProjectDetail = () => {
 
   return (
     <div className="min-h-screen max-w-6xl mx-auto px-6 py-12">
-      {/* Back button with animation */}
       <Link 
         to="/" 
         className="inline-flex items-center mb-8 text-primary hover:text-primary/80 transition-colors"
@@ -53,22 +47,19 @@ const ProjectDetail = () => {
         <span>Back to Portfolio</span>
       </Link>
       
-      {/* Project Header */}
       <div className="mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-4">{project.title}</h1>
         <p className="text-xl text-muted">{project.tagline}</p>
       </div>
       
-      {/* Project Image */}
       <div className="rounded-xl overflow-hidden mb-12 glass-effect p-2">
         <img 
-          src={project.imageUrl} 
+          src={project.detailImageUrl} 
           alt={project.title} 
-          className="w-full rounded-lg object-cover aspect-video animate-float" 
+          className={`w-full rounded-lg ${project.id === 'riyaaz' ? 'object-contain' : 'object-cover'} aspect-video animate-float`} 
         />
       </div>
       
-      {/* Project Overview */}
       <div className="grid md:grid-cols-3 gap-8 mb-12">
         <div className="md:col-span-2 space-y-6 animate-enter">
           <h2 className="text-2xl font-bold mb-4 text-gradient">Overview</h2>
@@ -125,7 +116,6 @@ const ProjectDetail = () => {
         </div>
       </div>
       
-      {/* Features Section */}
       {project.features && (
         <div className="mb-12">
           <h2 className="text-2xl font-bold mb-6 text-gradient">Key Features</h2>
@@ -144,7 +134,6 @@ const ProjectDetail = () => {
         </div>
       )}
       
-      {/* Additional Screenshots */}
       {project.screenshots && (
         <div className="mb-12">
           <h2 className="text-2xl font-bold mb-6 text-gradient">Screenshots</h2>
