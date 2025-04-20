@@ -1,4 +1,3 @@
-
 export const projectsData = [
   {
     id: "stick-hero",
@@ -79,3 +78,56 @@ export const projectsData = [
     ]
   }
 ];
+
+export const featureInstructions = {
+  voiceNavigation: {
+    title: "Voice Navigation",
+    description: "Navigate through the portfolio using voice commands",
+    instructions: [
+      "Click the microphone icon in the bottom right corner",
+      "Say 'Go to Home' to return to the main page",
+      "Say 'Go to Contact' to navigate to contact section",
+      "Say 'Open project Stick Hero' to view project details",
+      "Say 'Open Riyaaz' to view the Riyaaz project"
+    ],
+    implementation: {
+      libraries: [
+        "Web Speech API for voice recognition",
+        "React Router for navigation",
+        "Lucide React for UI icons"
+      ],
+      features: [
+        "Real-time voice command processing",
+        "Haptic feedback on mobile devices",
+        "Visual feedback during voice recognition",
+        "Support for natural language variations"
+      ]
+    }
+  },
+  virtualAssistant: {
+    title: "Virtual Assistant",
+    description: "AI-powered assistant to help you explore the portfolio",
+    instructions: [
+      "Click the bot icon in the bottom right corner",
+      "Read the assistant's suggestions and click on them",
+      "Type 'search React' to find projects using React",
+      "Type 'find Unity' to discover Unity-based projects",
+      "Assistant provides contextual navigation suggestions"
+    ],
+    implementation: {
+      libraries: [
+        "React hooks for state management",
+        "Web Audio API for sound effects",
+        "React Router for navigation",
+        "Lucide React for UI icons"
+      ],
+      features: [
+        "Project search by technology",
+        "Interactive suggestions",
+        "Ambient sound effects",
+        "Haptic feedback support",
+        "Real-time conversation updates"
+      ]
+    }
+  }
+};

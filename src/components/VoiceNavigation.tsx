@@ -1,7 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Mic, MicOff } from 'lucide-react';
+import { Mic, MicOff, HelpCircle } from 'lucide-react';
+import { 
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { featureInstructions } from '@/data/projects';
 
 const VoiceNavigation = () => {
   const [isListening, setIsListening] = useState(false);
@@ -55,13 +62,30 @@ const VoiceNavigation = () => {
   };
 
   return (
-    <button
-      onClick={toggleListening}
-      className="fixed bottom-24 right-4 z-50 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 transition-all"
-      aria-label={isListening ? "Stop voice navigation" : "Start voice navigation"}
-    >
-      {isListening ? <MicOff size={24} /> : <Mic size={24} />}
-    </button>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <button
+            onClick={toggleListening}
+            className="fixed bottom-24 right-4 z-50 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 transition-all group"
+            aria-label={isListening ? "Stop voice navigation" : "Start voice navigation"}
+          >
+            {isListening ? <MicOff size={24} /> : <Mic size={24} />}
+          </button>
+        </TooltipTrigger>
+        <TooltipContent side="left" className="max-w-xs">
+          <div className="space-y-2">
+            <h3 className="font-bold">{featureInstructions.voiceNavigation.title}</h3>
+            <p className="text-sm">{featureInstructions.voiceNavigation.description}</p>
+            <ul className="text-xs space-y-1 list-disc pl-4">
+              {featureInstructions.voiceNavigation.instructions.map((instruction, index) => (
+                <li key={index}>{instruction}</li>
+              ))}
+            </ul>
+          </div>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 };
 
